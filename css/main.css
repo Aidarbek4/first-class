@@ -402,8 +402,10 @@ body {
 .courses__info {
   padding: 0 20px;
 }
+.courses__wrapper {
+  min-height: 300px;
+}
 .courses .card {
-  position: relative;
   width: 600px;
   -webkit-box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);
