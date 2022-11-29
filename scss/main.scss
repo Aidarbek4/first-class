@@ -396,6 +396,7 @@ body {
             transition: width 0.5s;
             overflow: hidden;
             width: 300px;
+            display: flex;
             
         }
         &__car-card {
@@ -404,6 +405,7 @@ body {
         &__more-info {
             width: 300px;
             padding: 20px;
+
         }
         &__general {
             width: 300px;

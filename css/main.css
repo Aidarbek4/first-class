@@ -463,6 +463,7 @@ body {
   transition: width 0.5s;
   overflow: hidden;
   width: 300px;
+  display: flex;
 }
 .courses .card__car-card {
   width: 300px;
