@@ -1,3 +1,21 @@
+$light: #fbfbfb;
+$black: #19181a;
+$black2: rgba(25, 24, 26, 0.8);
+$gray: #545454;
+$green: #00ff11;
+$yellow: #f6ff00;
+$red: #ff2828;
+
+$desktop: 1024px;
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+		}
+	}
+}
+
 body {
     font-family: Poppins;
 }
@@ -7,12 +25,30 @@ body {
     padding: 0 20px;
 }
 
+.logo {
+    font-size: 45px;
+    font-weight: 900;
+    font-style: italic;
+    color: $light;
+    padding-left: 67px;
+    position: relative;
 
+    &::before {
+        content: "";
+        position: absolute;
+        width: 67px;
+        height: 67px;
+        left: 67px;
+        background-image: url(../images/car-wheel.png);
+        background-size: cover;
+        transform: translateX(-100%);
+    }
+}
 
 .header {
 
     &__top {
-        background-image: linear-gradient(90deg, rgba(0,0,0, .75) 0%, rgba(0,0,0, .75) 100%) ,
+        background-image: linear-gradient(90deg, $black2 0%, $black2 100%) ,
                             url(../images/Road.webp);
         background-position: 0 0;
         background-repeat: repeat;
@@ -27,26 +63,6 @@ body {
             justify-content: space-between;
             padding: 20px 0;
         }
-
-        .logo {
-            font-size: 45px;
-            font-weight: 900;
-            font-style: italic;
-            color: #fff;
-            padding-left: 67px;
-            position: relative;
-
-            &::before {
-                content: "";
-                position: absolute;
-                width: 67px;
-                height: 67px;
-                left: 67px;
-                background-image: url(../images/car-wheel.png);
-                background-size: cover;
-                transform: translateX(-100%);
-            }
-        }
     }
 
     &__menu {
@@ -59,17 +75,17 @@ body {
             }
             &__link {
                 font-weight: bold;
-                color: #fff;
+                color: $light;
                 transition: all .2s linear .2s;
                 &:hover{
-                    color: #00ff11;
-                    text-shadow: 2px 2px 8px rgb(0, 255, 17);
+                    color: $green;
+                    text-shadow: 2px 2px 8px $green;
                 }
                 &.active {
-                    color: rgb(246, 255, 0);
+                    color: $yellow;
                     &:hover {
-                        color: #ff2828;
-                        text-shadow: 2px 2px 8px #ff2828;
+                        color: $red;
+                        text-shadow: 2px 2px 8px $red;
                     }
                 }
             }
@@ -77,8 +93,8 @@ body {
     }
 
     &__main {
-        background-image: linear-gradient(90deg, rgba(0, 0, 0, .8)),
-                            url(../images/orkun-azap-_c7haaSAcIg-unsplash.jpg);
+        background-image: url(../images/orkun-azap-_c7haaSAcIg-unsplash.png),linear-gradient(90deg, $black)
+                            ;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -87,28 +103,26 @@ body {
         }
         &-content {
             text-align: center;
-            max-width: 720px;
-            margin-right: auto;
-            margin-left: auto;
-            margin-top: 120px;
+            min-width: 400px;
+            margin: 72px auto;
             padding-right: 120px;
         }
         &-title {
             font-size: 40px;
             font-weight: bold;
-            color: #fff;
+            color: $light;
         }
         &-desc {
             font-size: 24px;
-            color: #fff;
+            color: $light;
             margin: 35px 20px;
             padding: 10px;
         }
         .swiper {
             width: 100%;
             height: 100%;
-            background: #000;
-            color: #fff;
+            background: $black;
+            color: $light;
             padding: 0;
           }
           .swiper-wrapper {
@@ -117,7 +131,7 @@ body {
     
           .swiper-slide {
             font-size: 18px;
-            color: #fff;
+            color: $light;
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
             padding: 40px 60px;
@@ -132,7 +146,7 @@ body {
             top: 0;
             width: 130%;
             height: 100%;
-            background-image: linear-gradient(90deg, rgba(0, 0, 0, .8)), url(../images/orkun-azap-_c7haaSAcIg-unsplash.jpg);
+            background-image: linear-gradient(90deg, $black2), url(../images/orkun-azap-_c7haaSAcIg-unsplash.png);
             -webkit-background-size: cover;
             background-size: cover;
             background-position: center;
@@ -154,17 +168,17 @@ body {
             margin: 0 auto;
           }
           .swiper-pagination-bullet {
-            background-color: #fff;
+            background-color: $light;
             opacity: .6;
           }
           .swiper-pagination-bullet-active {
-            background-color: #fff;
+            background-color: $light;
             opacity: 1;
           }
           .swiper-button-next, 
           .swiper-button-prev {
             opacity: 1;
-            color: #fff;
+            color: $light;
           }
           .swiper-button-disabled {
             opacity: 0.6;
@@ -172,13 +186,11 @@ body {
     }
 }
 
-
-
 .advantages {
-    background-color: #fff;
+    background-color: $light;
     padding-top: 35px;
     &__title {
-        color: #000;
+        color: #19181a;
         font-size: 32px;
         text-align: center;
         font-weight: 900;
@@ -197,7 +209,7 @@ body {
         }
         &-title {
             margin-top: 10px;
-            color: #fff;
+            color: $light;
         }
         &-face {
             width: 300px;
@@ -205,7 +217,7 @@ body {
             transition: 0.5s;
             &.face1 {
                 position: relative;
-                background: #000;
+                background: $black;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -222,27 +234,18 @@ body {
             }
             &.face2 {
                 position: relative;
-                background-color: #fff;
+                background-color: $light;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding: 20px;
-                box-shadow: 0 20px 50px rgba(0, 0, 0, .8);
+                box-shadow: 0 20px 50px $black2;
                 transform: translateY(-100px);
             }
         }
         &:hover {
             .face1 {
                 transform: translateY(0);
-                .pricing {
-                    background-color: rgba(255, 40, 40, .85);
-                }
-                .instructor {
-                    background-color: rgba(246, 255, 0, .85);
-                }
-                .success {
-                    background-color: rgba(0, 255, 17, .85);
-                }
                 .content {
                     opacity: 1;
                 }
@@ -254,33 +257,32 @@ body {
     }
 }
 
-
-
 .instructors {
-    background-image: linear-gradient(0deg, rgba(0,0,0, .8) 0%, rgba(0,0,0, .8) 100%),
+    background-image: linear-gradient(0deg, $black2 0%, $black2 100%),
                         url(../images/zebra-crossing.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     padding: 50px 0;
     &__title {
-        color: #fff;
+        color: $light;
         font-size: 32px;
         text-align: center;
+        font-weight: 900;
     }
     & .slider {
         position: relative;
         margin: 50px 0;
         &__slide {
             max-width: 300px;
-            background-color: #000;
-            color: #fff;
+            background-color: $black;
+            color: $light;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
             transition: 0.5s;
-            box-shadow: 0 5px 30px 0 rgba(255,255,255,0.25);
+            box-shadow: 0 5px 30px 0 #000;
             &-title {
                 font-size: 24px;
                 transition: 0.5s;
@@ -293,7 +295,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: #fff;
+                background-color: $light;
                 transition: 0.5s;
             }
             &-img {
@@ -305,20 +307,6 @@ body {
             }
         }
     }
-    .slick-slide {
-        opacity: 0.1;
-        transition: 0.5s;
-        &.slick-active {
-            opacity: 0.4;
-            &.slick-current {
-                opacity: 1;
-            }
-        }
-    }
-    .slick-track {
-        align-items: center;
-    }
-
     .swiper {
         width: 100%;
         padding-top: 50px;
@@ -332,15 +320,14 @@ body {
       
 }
 
-
-
 .courses {
-    background-color: #fff;
+    background-color: $light;
     padding: 50px 0;
     &__title {
         text-align: center;
         font-size: 32px;
         font-weight: 900;
+        color: $black;
     }
     &__inner {
         display: flex;
@@ -348,6 +335,26 @@ body {
     }
     &__info {
         padding:0 20px;
+        &-button {
+            margin-top: 45px;
+            background-color: $black;
+            border-radius: 0;
+            border: 3px solid $black;
+            padding: 10px 30px;
+            transition: 0.5s;
+            a {
+                color: $light;
+                font-weight: bold;
+                transition: 0.5s;
+            }
+            &:hover {
+                background-color: transparent;
+                border-color: $black;
+                a {
+                    color: $black;
+                }
+            }
+        }
     }
     &__wrapper {
         display: flex;
@@ -358,7 +365,7 @@ body {
         margin-bottom: 350px;
         display: flex;
         position: relative;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, .8);
+        box-shadow: 0 20px 50px $black2;
         &:hover {
             .card__additional {
                 width: 100%;
@@ -370,9 +377,19 @@ body {
         &__more {
             display: inline-block;
         }
+        &__link {
+            color: $light;
+            transition: 0.5s;
+            font-weight: bold;
+            &:hover {
+                color: $green;
+                text-shadow: 2px 2px 8px $green;
+            }
+        }
         &__info {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 10px;
             &-name {
                 font-weight: bold;
             }
@@ -387,8 +404,8 @@ body {
             }
         }
         &__additional {
-            background-color: #000;
-            color: #fff;
+            background-color: $black;
+            color: $light;
             display: flex;
             z-index: 2;
             position: relative;
@@ -398,15 +415,18 @@ body {
             transition: width 0.5s;
             overflow: hidden;
             width: 300px;
+            height: 300px;
             display: flex;
         }
         &__car-card {
-            width: 300px;
+            width: 280px;
         }
         &__more-info {
             width: 300px;
             padding: 20px;
-
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         &__general {
             width: 300px;
@@ -419,6 +439,7 @@ body {
             justify-content: space-between;
             z-index: 1;
             padding: 20px;
+            border: 3px solid $black;
         }
         &__more {
             font-size: 14px;
@@ -427,11 +448,380 @@ body {
     }
 }
 
+.blog {
+    background-color: $black;
+    padding: 50px 0;
+    &__link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: $light;
+        color: $black;
+        border: 2px solid $black;
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: .3s;
 
-footer {
+        &:hover {
+            color: $light;
+            background-color: $black;
+            border-color: $light;
+        }
+    }
+    &__title {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 900;
+        color: $light;
+    }
+    &__slider-wrapper {
+        margin: 45px 0;
+    }
+    &__slide {
+        background-color: $light;
+        color: $light;
+        height: 600px;
+        box-shadow: 0 5px 10px 10px #000;
+        position: relative;
+        &:hover {
+            .blog__slide-content {
+                padding: 150px 20px 70px;
+            }
+            .blog__slide-text {
+                margin: 30px 0 50px;
+            }
+        }
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &-content {
+            position: absolute;
+            bottom: 0;
+            padding: 20px;
+            transition: all .4s ease 0s;
+            background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.87) 50% rgba(0,0,0,.76) 75%, transparent 100%);
+        }
+        &-title {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0px 1px 5px 0px $black;
+        }
+        &-text {
+            display: -webkit-box;
+            font-size: 16px;
+            max-height: 132px;
+            overflow: hidden;
+            margin: 10px 0;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+        &-link {
+            display: inline-block;
+            padding: 10px 20px;
+            color: $light;
+            border: 2px solid $light;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+            &:hover {
+                color: $black;
+                background-color: $light;
+                text-shadow: 0 0 0 0 transparent;
+            }
+        }
+        &-date {
+            display: inline-block;
+            font-weight: 200;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+.traffic-laws {
+    background-color: $light;
+    padding: 50px 0;
+    color: $black;
+    &__title {
+        color: $black;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 900;
+    }
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin: 45px 0 80px;
+    }
+    .card {
+        width: 280px;
+        background-color: $light;
+        box-shadow: 0 5px 10px 0 $black2;
+    
+        &:hover {
+            .card__caption {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+    
+            .card__image {
+                transform: translateY(-10px);
+            }
+    
+            .card__thumb {
+                &::after {
+                    top: 0;
+                }
+            }
+    
+            .card__snippet {
+                margin: 20px 0;
+            }
+        }
+    
+        &__thumb {
+            position: relative;
+            max-height: 400px;
+            overflow: hidden;
+            
+            @include breakpoint(desktop) {
+                max-height: 500px;
+            }
+    
+            &::after {
+                position: absolute;
+                top: 0;
+                display: block;
+                content: '';
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(0deg, $black2 40%, rgba(255, 255 ,255 , 0) 100%);
+                transition: .3s;
+                
+                @include breakpoint(desktop) {
+                    top: calc(100% - 140px);
+                }
+            }
+        }
+        
+        &__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s ease-in-out;
+        }
+        
+        &__caption {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            padding: 0 20px;
+            color: $light;
+            transform: translateY(-50%);
+            text-align: center;
+            transition: .3s;
+    
+            @include breakpoint(desktop) {
+                top: calc(100% - 110px);
+                transform: unset;
+            }
+        }
+    
+        &__title {
+            display: -webkit-box;
+            max-height: 85px;
+            overflow: hidden;
+            font-size: 23px;
+            line-height: 28px;
+            text-shadow: 0px 1px 5px $black;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    
+        &__snippet {
+            display: -webkit-box;
+            max-height: 150px;
+            margin: 20px 0;
+            overflow: hidden;
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 20px;
+            text-overflow: ellipsis;
+            transition: .5s ease-in-out;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            
+            @include breakpoint(desktop) {
+                margin: 80px 0;
+            }
+        }
+    
+        &__button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: $light;
+            border: 2px solid $light;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+    
+            &:hover {
+                color: $black;
+                background-color: $light;
+            }
+        }
+    }
+    &__link {
+        margin: 0 auto;
+        background-color: $black;
+        border-radius: 0;
+        border: 3px solid $black;
+        padding: 10px 30px;
+        transition: 0.5s;
+        color: $light;
+        font-weight: bold;
+        transition: 0.5s;
+        &:hover {
+            background-color: transparent;
+            border-color: $black;
+            color: $black;
+        }
+    }
+}
+
+.faqs {
+    background-color: $black;
+    padding: 50px 0;
+    color: $light;
+    &__title {
+        color: $light;
+        font-weight: 900;
+        font-size: 32px;
+        text-align: center;
+    }
+    &__wrapper {
+        margin: 0 auto;
+        width: 900px;
+        margin-top: 45px;
+    }
+    .faq {
+        background-color: $black;
+        box-shadow: 0 0 10px 2px $gray;
+        transition: 0.4s;
+        margin-bottom: 30px;
+        transition: transform 0.4s ease 0s;
+        &__header {
+            background-color: transparent;
+            color: $light;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 30px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            position: relative;
+            &::after, &::before {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 4px;
+                background-color: $light;
+                top: 42px;
+                right: 30px;
+                transition: transform 0.4s ease 0s;
+            }
+            &::after {
+                transform: rotate(90deg);
+            }
+            &.active:after {
+                transform: rotate(0deg);
+            }
+        }
+        &__body{
+            padding: 0px 30px 30px;
+            background-color: transparent;
+            display: none;
+            overflow: hidden;
+            transition: transform 0.4s ease 0s;
+        }
+    }
+}
+
+.footer {
+    background-color: $gray;
+    color: $light;
+    padding-top: 50px;
     &__inner {
         display: flex;
         justify-content: space-between;
+        padding-bottom: 100px;
+        border-bottom: 1px solid $light;
+    }
+    &__column {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        &-title {
+            margin-bottom:20px; 
+            font-size: 22px;
+        }
+        &-link {
+            color: $light;
+            transition: 0.5s;
+            margin-top: 15px;
+            &:hover {
+                color: $green;
+                text-shadow: 2px 2px 8px $green;
+            }
+        }
+    }
+    &__privesy {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 200;
+        padding: 30px 0 30px;
+    }
+}
+
+.socials {
+    &__list {
+        display: flex;
+        margin-top: 15px;
+    }
+    &__item {
+        &+& {
+            margin-left: 15px;
+        }
+    }
+    &__link svg {
+        width: 32px;
+        height: 32px;
+        transition: 0.5s;
+        border-radius: 50%;
+        & path {
+            transition: 0.5s;
+        }
+        &:hover {
+            path {
+                fill: $green;
+            }
+            background-color: $light;
+        }
     }
 }
 
