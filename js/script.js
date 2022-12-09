@@ -1,3 +1,4 @@
+//FOR SLIDERS
 const swiper = new Swiper(".MySwiper", {
   speed: 600,
   parallax: true,
@@ -37,6 +38,8 @@ const swiper2 = new Swiper(".mySwiper2", {
   },
 });
 
+
+//FOR FAQS
 const acc = document.getElementsByClassName("faq__header");
 var i;
 
